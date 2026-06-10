@@ -16,7 +16,7 @@ export default function Hero() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 gap-y-6 max-lg:justify-items-center max-lg:gap-y-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-rows-[auto_auto_auto] lg:justify-items-stretch lg:gap-x-10 lg:gap-y-8 lg:items-center">
+        <div className="grid grid-cols-1 gap-y-6 max-lg:justify-items-center max-lg:gap-y-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-rows-[auto_auto_auto] lg:justify-items-stretch lg:gap-x-10 lg:gap-y-3 lg:items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -31,14 +31,14 @@ export default function Hero() {
             <h1 className="mb-5 max-w-xl text-[2.35rem] font-black leading-[1.08] tracking-tight text-white max-lg:mx-auto sm:text-[2.75rem] sm:leading-[1.06] md:mb-6 md:text-5xl lg:mx-0 lg:text-[3.5rem] lg:leading-[1.05]">
               +40.000
               <br />
-              IMÁGENES EN{" "}
+              DISEÑOS EN{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-rose-950">
                 ALTA RESOLUCIÓN
               </span>
             </h1>
 
-            <p className="mb-0 max-w-lg text-base leading-relaxed text-gray-400 max-lg:mx-auto md:text-lg lg:mb-8 lg:mx-0">
-              Material original creado con esmero para tu negocio. Son +40 mil artes JPG/PNG en alta calidad, 65 temas en tendencia e impresión hasta 2,5 metros. Acceso vitalicio por Drive, sin cuotas y garantía total o tu dinero de vuelta.
+            <p className="mb-0 max-w-lg text-base leading-relaxed text-gray-400 max-lg:mx-auto md:text-lg lg:mx-0">
+              Material original creado con esmero para tu negocio. Son +40 mil diseños JPG/PNG en alta calidad, 65 temas en tendencia e impresión hasta 2,5 metros. Acceso vitalicio por Drive, sin cuotas y garantía total o tu dinero de vuelta.
             </p>
           </motion.div>
 
@@ -60,7 +60,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.05 }}
             className="order-3 min-w-0 w-full max-w-xl max-lg:mx-auto max-lg:text-center lg:order-none lg:col-start-1 lg:row-start-2 lg:row-span-2 lg:max-w-none lg:pr-4 lg:text-left"
           >
-            <div className="mb-10 flex flex-col items-center gap-4 max-lg:mb-0 sm:flex-row sm:flex-nowrap lg:mb-10 lg:items-stretch lg:justify-start">
+            <div className="mb-10 max-lg:mb-0 lg:mb-10">
+              <p className="mb-4 max-w-lg text-sm leading-relaxed text-gray-400 max-lg:mx-auto max-lg:text-center sm:text-base lg:mx-0 lg:mb-6 lg:text-left">
+                Recibe tu acceso de forma fácil y rápida directamente en tu correo electrónico y WhatsApp. Adquiérelo
+                ahora y paga solo la mitad del precio por acceso de por vida.
+              </p>
+              <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-nowrap lg:items-stretch lg:justify-start">
               <motion.a
                 href="#comprar"
                 animate={{
@@ -79,10 +84,11 @@ export default function Hero() {
               </motion.a>
               <a
                 href="#gallery"
-                className="shrink-0 whitespace-nowrap rounded-2xl border border-transparent bg-white px-6 py-4 text-base font-bold text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all hover:bg-gray-200 flex items-center justify-center gap-2 lg:px-8 lg:text-lg"
+                className="hidden shrink-0 whitespace-nowrap rounded-2xl border border-transparent bg-white px-6 py-4 text-base font-bold text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all hover:bg-gray-200 md:flex items-center justify-center gap-2 lg:px-8 lg:text-lg"
               >
                 VER TEMAS <Download className="h-5 w-5 shrink-0 text-black" />
               </a>
+              </div>
             </div>
 
             <div className="grid max-lg:mx-auto max-lg:mt-8 max-lg:max-w-sm grid-cols-2 gap-x-4 gap-y-3 lg:mx-0 lg:mt-0 lg:max-w-none lg:grid-cols-4 lg:gap-x-6 lg:gap-y-0">

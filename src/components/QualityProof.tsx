@@ -5,7 +5,7 @@ import { Search, CheckCircle } from "lucide-react";
 const checklist = [
   { t: "Cuadros, camisetas y más", d: "Paneles, adhesivos, azulejos, papel tapiz y cualquier artículo personalizado." },
   { t: "PNG y JPG · 300 DPI", d: "Dimensiones promedio 4100×6100 px — calidad para gran formato." },
-  { t: "100% libre de derechos", d: "Artes imaginadas y desarrolladas por Criativarts para uso comercial." },
+  { t: "100% libre de derechos", d: "Diseños imaginados y desarrollados por Criativarts para uso comercial." },
 ];
 
 function QualityImage({ className = "" }: { className?: string }) {
@@ -38,7 +38,7 @@ function QualityHeading() {
 function QualityParagraph() {
   return (
     <p className="text-gray-400 text-lg mb-6 leading-relaxed">
-      Más de <span className="text-white font-bold">40 mil imágenes</span> de{" "}
+      Más de <span className="text-white font-bold">40 mil diseños</span> de{" "}
       <span className="text-white font-bold">65 temas</span> actuales. Tamaño promedio de 5 MB, perfectas para trabajos
       hasta 2,5 metros de impresión. Material organizado por carpetas, fácil de visualizar y descargar cuando quieras.
     </p>

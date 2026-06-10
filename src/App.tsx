@@ -12,7 +12,6 @@ import Benefits from "./components/Benefits";
 import HowItWorks from "./components/HowItWorks";
 import ExclusiveBonuses from "./components/ExclusiveBonuses";
 import PricingCTA from "./components/PricingCTA";
-import QualityProof from "./components/QualityProof";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import WhatsAppFloat from "./components/WhatsAppFloat";
@@ -27,7 +26,6 @@ export default function App() {
         <DesignGallery />
         <ClientTestimonials />
         <Benefits />
-        <QualityProof />
         <HowItWorks />
         <ExclusiveBonuses />
         <PricingCTA />

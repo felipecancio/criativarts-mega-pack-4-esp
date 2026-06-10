@@ -3,7 +3,7 @@ export const MEGAPACK_THEMES = [
   "ABSTRACTAS",
   "ANIMALES",
   "ANIMES",
-  "ARTES MODERNAS",
+  "DISEÑOS MODERNOS",
   "ARTÍSTICAS",
   "BANDAS DE ROCK",
   "BAR Y BEBIDAS",
@@ -63,6 +63,6 @@ export const MEGAPACK_THEMES = [
   "VIBE JUNGLE",
   "VEHÍCULOS",
   "VIAJES",
-  "VIKINGOS",
+  "VIKINGS",
   "VINTAGE",
 ] as const;

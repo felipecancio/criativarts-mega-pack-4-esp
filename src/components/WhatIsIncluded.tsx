@@ -3,12 +3,12 @@ import { Folder, FileImage, ShieldCheck, Monitor, Download, Package } from "luci
 
 export default function WhatIsIncluded() {
   const items = [
-    { icon: <FileImage className="text-purple-400" />, title: "+40 mil artes PNG/JPG", desc: "Alta resolución, hasta impresión de 2,5 metros." },
+    { icon: <FileImage className="text-purple-400" />, title: "+40 mil diseños PNG/JPG", desc: "Alta resolución, hasta impresión de 2,5 metros." },
     { icon: <Folder className="text-green-400" />, title: "65 temas organizados", desc: "Carpetas por categoría en Google Drive." },
     { icon: <ShieldCheck className="text-yellow-400" />, title: "Libre de derechos", desc: "Uso comercial tranquilo en tus creaciones." },
     { icon: <Monitor className="text-pink-400" />, title: "Acceso vitalicio", desc: "Un solo pago. Sin mensualidades." },
     { icon: <Download className="text-blue-400" />, title: "Entrega inmediata", desc: "Enlace por correo y WhatsApp al comprar." },
-    { icon: <Package className="text-cyan-400" />, title: "3 bonos incluidos", desc: "Funko, fútbol y artes famosas sin costo extra." },
+    { icon: <Package className="text-cyan-400" />, title: "3 bonos incluidos", desc: "Money Dollar, Funko y fútbol sin costo extra." },
   ];
 
   return (

@@ -6,14 +6,14 @@ const HOTMART_CHECKOUT =
   "https://pay.hotmart.com/P104382859N?off=4f36ap0g&checkoutMode=10";
 
 const offerChecklist = [
-  "Más de 40 mil artes inéditas en alta resolución hasta 2,5 m",
+  "Más de 40 mil diseños inéditos en alta resolución hasta 2,5 m",
   "65 temas modernos y creativos",
-  "Imágenes PNG y JPG (300 DPI / alta resolución)",
+  "Diseños PNG y JPG (300 DPI / alta resolución)",
   "100% libre de derechos de autor",
   "Cuadros, camisetas y todo trabajo en gran formato",
-  "Bono 1: Mega Pack Funko (mil artes)",
-  "Bono 2: Mega Pack Fútbol (300 artes)",
-  "Bono 3: Mega Pack Artes Famosas (mil artes)",
+  "Bono 1: Mega Pack Money Dollar (100 diseños)",
+  "Bono 2: Mega Pack Funko (mil diseños)",
+  "Bono 3: Mega Pack Fútbol (300 diseños)",
   "Pago único · envío inmediato por e-mail y WhatsApp",
   "Acceso vitalicio por Drive con soporte diferenciado",
 ];
@@ -38,7 +38,7 @@ export default function PricingCTA() {
           </h2>
 
           <p className="text-xl md:text-2xl font-bold text-gray-300 mb-2">
-            40 mil imágenes en alta resolución
+            40 mil diseños en alta resolución
           </p>
 
           <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto font-medium">
@@ -48,7 +48,7 @@ export default function PricingCTA() {
           </p>
 
           <div className="mb-10 flex flex-col items-center">
-            <FloatingProductBox size="lg" />
+            <FloatingProductBox size="xl" />
             <p className="mt-3 text-sm font-black uppercase tracking-widest text-gray-400">
               Garantía de riesgo cero
             </p>

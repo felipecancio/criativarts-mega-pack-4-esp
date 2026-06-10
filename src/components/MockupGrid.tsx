@@ -3,8 +3,9 @@ import GreenCTAButton from "./GreenCTAButton";
 import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
-const SLIDE_COUNT = 9;
+const SLIDE_COUNT = 14;
 const GAP_PX = 16;
+const AUTOPLAY_MS = 5000;
 const slides = Array.from({ length: SLIDE_COUNT }, (_, i) => `/mockup-carousel/${i + 1}.png`);
 
 export default function MockupGrid() {
@@ -12,6 +13,7 @@ export default function MockupGrid() {
   const [visible, setVisible] = useState(1);
   const [slideW, setSlideW] = useState(0);
   const [index, setIndex] = useState(0);
+  const [autoplayReset, setAutoplayReset] = useState(0);
 
   const measure = useCallback(() => {
     const el = viewportRef.current;
@@ -46,18 +48,22 @@ export default function MockupGrid() {
   useEffect(() => {
     const id = window.setInterval(() => {
       setIndex((i) => (i >= maxIndex ? 0 : i + 1));
-    }, 5000);
+    }, AUTOPLAY_MS);
     return () => window.clearInterval(id);
-  }, [maxIndex]);
+  }, [maxIndex, autoplayReset]);
 
   const offsetPx = index * (slideW + GAP_PX);
 
+  const resetAutoplay = () => setAutoplayReset((n) => n + 1);
+
   const goPrev = () => {
     setIndex((i) => (i <= 0 ? maxIndex : i - 1));
+    resetAutoplay();
   };
 
   const goNext = () => {
     setIndex((i) => (i >= maxIndex ? 0 : i + 1));
+    resetAutoplay();
   };
 
   return (
@@ -69,14 +75,11 @@ export default function MockupGrid() {
             50% OFF en el lanzamiento hoy
           </div>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 uppercase italic tracking-tighter">
-            Solo en el <span className="text-purple-400">Mega Pack 4.0</span> encuentras todas las imágenes que buscas
+            Solo en el <span className="text-purple-400">Mega Pack 4.0</span> encuentras todos los diseños que buscas
           </h2>
-          <div className="text-gray-500 max-w-2xl mx-auto text-lg space-y-4">
+          <div className="text-gray-500 max-w-2xl mx-auto text-lg">
             <p>
               Solo en Mega Pack obtienes calidad y cantidad al mismo tiempo. Aunque se trata de una colección enorme, cada diseño fue seleccionado cuidadosamente para que aproveches al máximo su potencial.
-            </p>
-            <p className="text-gray-400 text-base font-medium">
-              Nada de imágenes comunes que encuentras en Internet. Solo diseños premium listos para usar y vender.
             </p>
           </div>
         </div>
@@ -118,7 +121,7 @@ export default function MockupGrid() {
                   >
                     <img
                       src={src}
-                      alt={`Muestra de arte Mega Pack 4.0 ${i + 1}`}
+                      alt={`Muestra de diseño Mega Pack 4.0 ${i + 1}`}
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       draggable={false}
                     />

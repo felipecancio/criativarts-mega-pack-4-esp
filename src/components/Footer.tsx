@@ -10,7 +10,7 @@ export default function Footer() {
               CRIATIVARTS · MEGA PACK 4.0
             </div>
             <p className="text-gray-500 max-w-md leading-relaxed">
-              Más de 40 mil artes en alta resolución para emprendedores de personalizados, impresión y decoración en
+              Más de 40 mil diseños en alta resolución para emprendedores de personalizados, impresión y decoración en
               Latinoamérica. Acceso vitalicio, bonos exclusivos y soporte por WhatsApp.
             </p>
           </div>

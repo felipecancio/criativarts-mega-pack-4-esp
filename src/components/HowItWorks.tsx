@@ -17,13 +17,13 @@ const steps = [
   {
     icon: <Download />,
     title: "Paso 3",
-    text: "Descarga las artes por carpetas, poco a poco o todo de una vez. Acceso vitalicio.",
+    text: "Descarga los diseños por carpetas, poco a poco o todo de una vez. Acceso vitalicio.",
     label: "DESCARGAS",
   },
   {
     icon: <Rocket />,
     title: "Paso 4",
-    text: "Empieza a vender cuadros, camisetas y productos con artes exclusivas hoy mismo.",
+    text: "Empieza a vender cuadros, camisetas y productos con diseños exclusivos hoy mismo.",
     label: "VENDES",
   },
 ];

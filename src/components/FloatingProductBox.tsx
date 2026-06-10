@@ -2,11 +2,17 @@ import { motion } from "motion/react";
 
 type FloatingProductBoxProps = {
   className?: string;
-  size?: "md" | "lg";
+  size?: "md" | "lg" | "xl";
+};
+
+const sizeClasses = {
+  md: "max-w-[180px] sm:max-w-[200px]",
+  lg: "max-w-[200px] sm:max-w-[240px]",
+  xl: "max-w-[320px] sm:max-w-[400px] md:max-w-[480px]",
 };
 
 export default function FloatingProductBox({ className = "", size = "md" }: FloatingProductBoxProps) {
-  const maxW = size === "lg" ? "max-w-[200px] sm:max-w-[240px]" : "max-w-[180px] sm:max-w-[200px]";
+  const maxW = sizeClasses[size];
 
   return (
     <div className={`relative mx-auto ${maxW} ${className}`}>

@@ -8,19 +8,19 @@ const faqs = [
   },
   {
     q: "¿El acceso tiene tiempo limitado?",
-    a: "¡No! El acceso es vitalicio y podrás descargar las artes a medida que las necesites.",
+    a: "¡No! El acceso es vitalicio y podrás descargar los diseños a medida que los necesites.",
   },
   {
-    q: "¿Puedo usar las artes en cualquier tipo de trabajo?",
-    a: "Sí, todos los tipos de trabajos que necesiten artes en alta resolución que puedan alcanzar tamaños grandes están cubiertos por este material.",
+    q: "¿Puedo usar los diseños en cualquier tipo de trabajo?",
+    a: "Sí, todos los tipos de trabajos que necesiten diseños en alta resolución que puedan alcanzar tamaños grandes están cubiertos por este material.",
   },
   {
     q: "¿Cuál es el formato de los archivos?",
-    a: "Las imágenes son archivos PNG de alta calidad con dimensiones de 4200 x 6200 píxeles. Pueden ser impresas por encima de 2 metros de tamaño manteniendo la calidad intacta.",
+    a: "Los diseños son archivos PNG de alta calidad con dimensiones de 4200 x 6200 píxeles. Pueden ser impresos por encima de 2 metros de tamaño manteniendo la calidad intacta.",
   },
   {
     q: "¿Y qué hay de los derechos de autor?",
-    a: "Todas las imágenes fueron imaginadas y desarrolladas por nosotros en Criativarts. Son libres de derechos de autor y pueden utilizarse tranquilamente en tus creaciones.",
+    a: "Todos los diseños fueron imaginados y desarrollados por nosotros en Criativarts. Son libres de derechos de autor y pueden utilizarse tranquilamente en tus creaciones.",
   },
   {
     q: "¿La compra es segura?",

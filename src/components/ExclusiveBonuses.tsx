@@ -1,57 +1,54 @@
 import { motion } from "motion/react";
 import GreenCTAButton from "./GreenCTAButton";
-import { CheckCircle2, Sparkles, Gift } from "lucide-react";
+import { CheckCircle2, Sparkles } from "lucide-react";
+
+const BONUS_BULLET = "Bonus Pack incluido sin costo adicional";
 
 const bonuses = [
   {
     tag: "BONO 1",
-    title: "Pack Funkos",
-    subtitle: "1.000 artes exclusivas",
-    image: "/bonus-images/bonus-mockups.png",
-    imageAlt: "Pack Funko — héroes, películas y series",
+    title: "Pack Money Dollar",
+    subtitle: "100 diseños exclusivos",
+    image: "/bonus-images/bonus-money-dollar.png",
+    imageAlt: "Pack Money Dollar — billetes y temáticas de dinero y lujo",
     description:
-      "Mil artes estilo FUNKO de temas como héroes, películas, series y artistas. Ideal para ampliar tu catálogo con piezas de alto impacto visual.",
-    bullets: [
-      "Estilo Funko exclusivo Criativarts",
-      "Héroes, cine y entretenimiento",
-      "Alta resolución para impresión",
-      "Incluido sin costo extra",
-    ],
-    glow: "from-emerald-500/20 via-green-500/10 to-transparent",
+      "100 diseños exclusivos de billetes de dólar y temáticas relacionadas con dinero y lujo. Perfecto para aumentar el valor percibido de tus productos.",
+    glow: "from-amber-500/20 via-orange-500/10 to-transparent",
   },
   {
     tag: "BONO 2",
-    title: "Pack Fútbol",
-    subtitle: "300 artes exclusivas",
-    image: "/bonus-images/bonus-catalogo.png",
-    imageAlt: "Pack fútbol — equipos y estrellas",
+    title: "Pack Funkos",
+    subtitle: "1.000 diseños exclusivos",
+    image: "/bonus-images/bonus-funkos.png",
+    imageAlt: "Pack Funko — héroes, películas y series",
     description:
-      "300 artes de equipos y estrellas del fútbol de Brasil y del mundo. Perfectas para camisetas, cuadros y productos deportivos.",
-    bullets: [
-      "Equipos y jugadores populares",
-      "Brasil y selecciones internacionales",
-      "Listas para DTF y sublimación",
-      "Disponible por tiempo limitado",
-    ],
-    glow: "from-purple-500/20 via-blue-500/10 to-transparent",
+      "Mil diseños estilo FUNKO de temas como héroes, películas, series y artistas. Ideal para ampliar tu catálogo con piezas de alto impacto visual.",
+    glow: "from-emerald-500/20 via-green-500/10 to-transparent",
   },
   {
     tag: "BONO 3",
-    title: "Pack Artes Famosas",
-    subtitle: "1.000 artes exclusivas",
-    image: null,
-    imageAlt: "Pack artes famosas — grandes pintores",
+    title: "Pack Fútbol",
+    subtitle: "300 diseños exclusivos",
+    image: "/bonus-images/bonus-futbol.png",
+    imageAlt: "Pack fútbol — equipos y estrellas",
     description:
-      "Mil artes inspiradas en grandes pintores y escuelas artísticas variadas. Eleva tu oferta con piezas clásicas y sofisticadas.",
-    bullets: [
-      "Grandes maestros y estilos variados",
-      "Ideal para cuadros y decoración",
-      "Alta resolución para gran formato",
-      "Tercer regalo al adquirir hoy",
-    ],
-    glow: "from-amber-500/20 via-orange-500/10 to-transparent",
+      "300 diseños de equipos y estrellas del fútbol de Brasil y del mundo. Perfectas para camisetas, cuadros y productos deportivos.",
+    glow: "from-purple-500/20 via-blue-500/10 to-transparent",
   },
-];
+] as const;
+
+function BonusMockup({ image, imageAlt }: { image: string; imageAlt: string }) {
+  return (
+    <div className="mb-6 flex justify-center">
+      <img
+        src={image}
+        alt={imageAlt}
+        className="block h-auto max-h-[200px] w-auto max-w-full rounded-2xl border border-white/10 sm:max-h-[240px] lg:max-h-[260px]"
+        draggable={false}
+      />
+    </div>
+  );
+}
 
 export default function ExclusiveBonuses() {
   return (
@@ -106,31 +103,15 @@ export default function ExclusiveBonuses() {
                   {bonus.title}
                 </h3>
 
-                <div className="mb-6 overflow-hidden rounded-[28px] border border-white/10 bg-black/30 shadow-[0_20px_60px_-30px_rgba(0,0,0,0.9)]">
-                  {bonus.image ? (
-                    <img
-                      src={bonus.image}
-                      alt={bonus.imageAlt}
-                      className="aspect-[16/10] w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                      draggable={false}
-                    />
-                  ) : (
-                    <div className="aspect-[16/10] w-full flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-amber-950/50 via-black to-purple-950/40">
-                      <Gift className="h-12 w-12 text-amber-400/80" />
-                      <span className="text-xs font-black uppercase tracking-widest text-gray-400">Pack artes famosas</span>
-                    </div>
-                  )}
-                </div>
+                <BonusMockup image={bonus.image} imageAlt={bonus.imageAlt} />
 
                 <p className="mb-7 text-[15px] font-medium leading-relaxed text-gray-400 sm:text-base">{bonus.description}</p>
 
                 <ul className="space-y-3">
-                  {bonus.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-3 text-sm font-bold leading-snug text-gray-300">
-                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
+                  <li className="flex gap-3 text-sm font-bold leading-snug text-gray-300">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-500" />
+                    <span>{BONUS_BULLET}</span>
+                  </li>
                 </ul>
               </div>
             </motion.article>
