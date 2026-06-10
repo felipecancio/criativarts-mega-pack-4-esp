@@ -135,6 +135,9 @@ export default function MockupGrid() {
         </div>
 
         <div className="mt-12 text-center">
+          <p className="mx-auto mb-5 max-w-2xl text-sm font-medium leading-relaxed text-gray-400 sm:text-base">
+            Diseños nuevos, exclusivos y libres de derechos de autor. Listos para impulsar tu negocio desde hoy.
+          </p>
           <GreenCTAButton>QUIERO ACCESO</GreenCTAButton>
         </div>
       </div>

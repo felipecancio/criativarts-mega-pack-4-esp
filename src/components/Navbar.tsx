@@ -6,11 +6,8 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 gap-2 sm:gap-3">
           <div className="flex min-w-0 flex-1 items-center">
-            <span className="hidden text-lg font-black leading-none tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 sm:text-2xl md:inline md:text-3xl">
-              MEGA PACK <span className="text-orange-400">4.0</span>
-            </span>
-            <span className="text-lg font-black leading-none tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 sm:text-2xl md:hidden">
-              Actualizaciones gratuitas incluidas
+            <span className="min-w-0 text-[10px] font-black uppercase leading-tight tracking-wide text-white sm:text-xs md:text-base lg:text-lg">
+              50% OFF <span className="text-orange-400">POR TIEMPO LIMITADO</span>
             </span>
           </div>
 

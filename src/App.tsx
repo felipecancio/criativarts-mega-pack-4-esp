@@ -9,8 +9,8 @@ import MockupGrid from "./components/MockupGrid";
 import DesignGallery from "./components/DesignGallery";
 import ClientTestimonials from "./components/ClientTestimonials";
 import Benefits from "./components/Benefits";
-import HowItWorks from "./components/HowItWorks";
 import ExclusiveBonuses from "./components/ExclusiveBonuses";
+import PurchaseGuarantee from "./components/PurchaseGuarantee";
 import PricingCTA from "./components/PricingCTA";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
@@ -26,8 +26,8 @@ export default function App() {
         <DesignGallery />
         <ClientTestimonials />
         <Benefits />
-        <HowItWorks />
         <ExclusiveBonuses />
+        <PurchaseGuarantee />
         <PricingCTA />
         <FAQ />
       </main>

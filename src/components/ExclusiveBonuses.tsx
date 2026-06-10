@@ -123,13 +123,12 @@ export default function ExclusiveBonuses() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.12 }}
-          className="relative mx-auto mt-8 max-w-4xl overflow-hidden rounded-[32px] border border-emerald-300/20 bg-gradient-to-br from-emerald-950/40 via-white/[0.04] to-purple-950/30 p-6 text-center shadow-[0_0_60px_rgba(16,185,129,0.08)] sm:p-8"
+          className="mx-auto mt-12 max-w-2xl text-center"
         >
-          <div className="pointer-events-none absolute inset-x-12 -top-24 h-40 rounded-full bg-emerald-400/10 blur-[70px]" />
-          <p className="relative z-10 text-base font-black leading-relaxed text-white sm:text-lg mb-6">
+          <p className="mb-6 text-base font-black leading-relaxed text-white sm:text-lg">
             ¡Asegura ahora el acceso para recibir todos los bonos que están disponibles por tiempo limitado!
           </p>
-          <GreenCTAButton className="relative z-10">QUIERO RECIBIR LOS BONOS</GreenCTAButton>
+          <GreenCTAButton>QUIERO RECIBIR LOS BONOS</GreenCTAButton>
         </motion.div>
       </div>
     </section>

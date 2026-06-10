@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Check, Star, Zap, Shield, Rocket } from "lucide-react";
+import { Check, Zap, Shield, Rocket } from "lucide-react";
 import FloatingProductBox from "./FloatingProductBox";
 
 const HOTMART_CHECKOUT =
@@ -25,13 +25,12 @@ export default function PricingCTA() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="bg-white/[0.03] border border-white/10 rounded-[40px] overflow-hidden p-8 md:p-16 text-center shadow-2xl">
-          <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-black text-white mb-4 tracking-[.2em] uppercase">
-            <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" /> 50% OFF en el lanzamiento hoy
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/[0.08] border border-orange-500/20 text-[10px] font-black text-orange-200 mb-6 tracking-[0.12em] uppercase">
+            <span className="text-sm leading-none" aria-hidden>
+              ⏳
+            </span>
+            ¡Atención, esta oferta ya va a terminar!
           </div>
-
-          <p className="text-[10px] font-black uppercase tracking-[0.35em] text-gray-500 mb-6">
-            Asegura ahora el Mega Pack 4.0
-          </p>
 
           <h2 className="text-4xl md:text-6xl font-black text-white mb-4 uppercase tracking-tighter italic">
             MEGA PACK 4.0
@@ -49,9 +48,6 @@ export default function PricingCTA() {
 
           <div className="mb-10 flex flex-col items-center">
             <FloatingProductBox size="xl" />
-            <p className="mt-3 text-sm font-black uppercase tracking-widest text-gray-400">
-              Garantía de riesgo cero
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left max-w-2xl mx-auto mb-12">

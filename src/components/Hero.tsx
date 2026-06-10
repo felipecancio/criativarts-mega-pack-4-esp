@@ -23,9 +23,17 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="order-1 min-w-0 w-full max-w-xl max-lg:mx-auto max-lg:text-center lg:order-none lg:col-start-1 lg:row-start-1 lg:max-w-none lg:pr-4 lg:text-left"
           >
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-white max-lg:mx-auto sm:text-xs">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-green-500" />
-              100% original · libre de derechos · acceso de por vida
+            <div className="mb-4 inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-3.5 backdrop-blur-sm max-lg:mx-auto sm:gap-3 sm:py-2 sm:pl-2 sm:pr-4">
+              <span
+                className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-500/25 bg-gradient-to-br from-amber-500/15 via-purple-500/10 to-transparent text-base shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] sm:h-9 sm:w-9 sm:text-lg"
+                aria-hidden
+              >
+                💎
+                <span className="absolute -right-0.5 -top-0.5 h-2 w-2 animate-pulse rounded-full bg-amber-400 ring-2 ring-black/80" />
+              </span>
+              <span className="min-w-0 text-left text-[10px] font-semibold leading-snug text-gray-200 sm:text-xs">
+                Actualizado constantemente con nuevos diseños
+              </span>
             </div>
 
             <h1 className="mb-5 max-w-xl text-[2.35rem] font-black leading-[1.08] tracking-tight text-white max-lg:mx-auto sm:text-[2.75rem] sm:leading-[1.06] md:mb-6 md:text-5xl lg:mx-0 lg:text-[3.5rem] lg:leading-[1.05]">
@@ -38,7 +46,7 @@ export default function Hero() {
             </h1>
 
             <p className="mb-0 max-w-lg text-base leading-relaxed text-gray-400 max-lg:mx-auto md:text-lg lg:mx-0">
-              Material original creado con esmero para tu negocio. Son +40 mil diseños JPG/PNG en alta calidad, 65 temas en tendencia e impresión hasta 2,5 metros. Acceso vitalicio por Drive, sin cuotas y garantía total o tu dinero de vuelta.
+              Un arsenal de diseños exclusivos para crear productos que destacan y venden más. Son +40 mil diseños JPG/PNG en alta calidad, 65 temas en tendencia e impresión hasta 2,5 metros. Acceso vitalicio por Drive, sin cuotas y garantía total o tu dinero de vuelta.
             </p>
           </motion.div>
 
@@ -60,6 +68,9 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.05 }}
             className="order-3 min-w-0 w-full max-w-xl max-lg:mx-auto max-lg:text-center lg:order-none lg:col-start-1 lg:row-start-2 lg:row-span-2 lg:max-w-none lg:pr-4 lg:text-left"
           >
+            <p className="mb-4 max-w-lg text-sm leading-relaxed text-gray-400 max-lg:mx-auto max-lg:text-center sm:text-base lg:mx-0 lg:mb-6 lg:text-left">
+              Ideal para cuadros, camisetas, tazas, pósters y todo tipo de productos personalizados.
+            </p>
             <div className="mb-10 max-lg:mb-0 lg:mb-10">
               <p className="mb-4 max-w-lg text-sm leading-relaxed text-gray-400 max-lg:mx-auto max-lg:text-center sm:text-base lg:mx-0 lg:mb-6 lg:text-left">
                 Recibe tu acceso de forma fácil y rápida directamente en tu correo electrónico y WhatsApp. Adquiérelo
