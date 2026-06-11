@@ -3,7 +3,7 @@ import { Check, Zap, Shield, Rocket } from "lucide-react";
 import FloatingProductBox from "./FloatingProductBox";
 
 const HOTMART_CHECKOUT =
-  "https://pay.hotmart.com/P104382859N?off=4f36ap0g&checkoutMode=10";
+  "https://pay.hotmart.com/B97388036V?off=bt0ztfcx&checkoutMode=10";
 
 const offerChecklist = [
   "Más de 40 mil diseños inéditos en alta resolución hasta 2,5 m",
@@ -36,18 +36,14 @@ export default function PricingCTA() {
             MEGA PACK 4.0
           </h2>
 
-          <p className="text-xl md:text-2xl font-bold text-gray-300 mb-2">
-            40 mil diseños en alta resolución
-          </p>
-
-          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto font-medium">
+          <p className="mb-8 max-w-2xl mx-auto text-sm font-medium leading-relaxed text-gray-400 md:text-lg">
             Adquiere ahora en el lanzamiento con un{" "}
             <span className="text-emerald-400 font-black">50% de descuento</span>. Pago único, entrega instantánea y
             garantía de riesgo cero.
           </p>
 
-          <div className="mb-10 flex flex-col items-center">
-            <FloatingProductBox size="xl" />
+          <div className="mb-10 -mx-8 flex w-[calc(100%+4rem)] flex-col items-center justify-center sm:mx-0 sm:w-full">
+            <FloatingProductBox size="2xl" className="mx-auto w-full" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-left max-w-2xl mx-auto mb-12">
@@ -61,9 +57,19 @@ export default function PricingCTA() {
             ))}
           </div>
 
-          <p className="mx-auto mb-3 max-w-md text-center text-sm font-medium leading-relaxed text-gray-500 sm:mb-4 sm:text-base">
-            Mira el precio en tu moneda al hacer clic en el botón · Checkout seguro Hotmart
-          </p>
+          <div className="mx-auto mb-5 max-w-lg text-center sm:mb-6">
+            <p className="mb-3 flex flex-wrap items-baseline justify-center gap-x-2.5 gap-y-1 font-black tracking-tight">
+              <span className="text-base font-bold normal-case text-gray-400 sm:text-lg">De</span>
+              <span className="text-xl text-red-500 line-through decoration-red-500/70 sm:text-2xl">
+                $29.90 USD
+              </span>
+              <span className="text-base font-bold normal-case text-gray-400 sm:text-lg">por solo</span>
+              <span className="text-3xl text-emerald-400 sm:text-4xl">$14.90 USD</span>
+            </p>
+            <p className="text-sm font-medium leading-relaxed text-gray-500 sm:text-base">
+              Mira el precio en tu moneda al hacer clic en el botón · Checkout seguro Hotmart
+            </p>
+          </div>
 
           <motion.a
             href={HOTMART_CHECKOUT}
