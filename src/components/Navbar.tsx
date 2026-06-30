@@ -7,7 +7,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20 gap-2 sm:gap-3">
           <div className="flex min-w-0 flex-1 items-center">
             <span className="min-w-0 text-[10px] font-black uppercase leading-tight tracking-wide text-white sm:text-xs md:text-base lg:text-lg">
-              50% OFF <span className="text-orange-400">POR TIEMPO LIMITADO</span>
+              Futuras actualizaciones <span className="text-orange-400">GRATIS</span>
             </span>
           </div>
 

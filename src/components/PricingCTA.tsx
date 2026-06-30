@@ -3,7 +3,7 @@ import { Check, Zap, Shield, Rocket } from "lucide-react";
 import FloatingProductBox from "./FloatingProductBox";
 
 const HOTMART_CHECKOUT =
-  "https://pay.hotmart.com/B97388036V?off=bt0ztfcx&checkoutMode=10";
+  "https://pay.hotmart.com/B97388036V?off=d842qxqc&checkoutMode=10";
 
 const offerChecklist = [
   "Más de 40 mil diseños inéditos en alta resolución hasta 2,5 m",
@@ -57,19 +57,17 @@ export default function PricingCTA() {
             ))}
           </div>
 
-          <div className="mx-auto mb-5 max-w-lg text-center sm:mb-6">
-            <p className="mb-3 flex flex-wrap items-baseline justify-center gap-x-2.5 gap-y-1 font-black tracking-tight">
-              <span className="text-base font-bold normal-case text-gray-400 sm:text-lg">De</span>
-              <span className="text-xl text-red-500 line-through decoration-red-500/70 sm:text-2xl">
-                $29.90 USD
-              </span>
-              <span className="text-base font-bold normal-case text-gray-400 sm:text-lg">por solo</span>
-              <span className="text-3xl text-emerald-400 sm:text-4xl">$14.90 USD</span>
-            </p>
-            <p className="text-sm font-medium leading-relaxed text-gray-500 sm:text-base">
-              Mira el precio en tu moneda al hacer clic en el botón · Checkout seguro Hotmart
-            </p>
-          </div>
+          <p className="mx-auto mb-4 max-w-2xl text-center text-sm font-medium leading-relaxed text-gray-300 sm:mb-5 sm:text-base">
+            Compra hoy y recibe todas las futuras actualizaciones del Mega Pack sin costo adicional. Tu colección
+            seguirá creciendo para siempre.
+          </p>
+
+          <p className="mx-auto mb-5 flex w-full max-w-md flex-wrap items-center justify-center gap-2 text-center text-xs font-black uppercase tracking-[0.14em] text-gray-400 sm:mb-6 sm:text-sm">
+            <span className="text-base leading-none" aria-hidden>
+              ⏳
+            </span>
+            Oferta por tiempo <span className="text-orange-400">LIMITADO</span>
+          </p>
 
           <motion.a
             href={HOTMART_CHECKOUT}

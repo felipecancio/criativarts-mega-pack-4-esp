@@ -73,8 +73,8 @@ export default function Hero() {
             </p>
             <div className="mb-10 max-lg:mb-0 lg:mb-10">
               <p className="mb-4 max-w-lg text-sm leading-relaxed text-gray-400 max-lg:mx-auto max-lg:text-center sm:text-base lg:mx-0 lg:mb-6 lg:text-left">
-                Recibe tu acceso de forma fácil y rápida directamente en tu correo electrónico y WhatsApp. Adquiérelo
-                ahora y paga solo la mitad del precio por acceso de por vida.
+                Recibe tu acceso de forma fácil y rápida directamente en tu correo electrónico y WhatsApp. Compra hoy y
+                obtén todas las futuras actualizaciones GRATIS.
               </p>
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-nowrap lg:items-stretch lg:justify-start">
               <motion.a
