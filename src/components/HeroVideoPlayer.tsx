@@ -1,17 +1,11 @@
-import { motion } from "motion/react";
-import { Pause, Play, Volume2, VolumeX } from "lucide-react";
 import { useEffect, useId, useRef, useState } from "react";
 
 const VIDEO_ID = "vI8YlowxvB4";
+const POSTER_WEBP = "/hero/video-poster.webp";
+const POSTER_JPG = "/hero/video-poster.jpg";
 
 type YTPlayer = {
   playVideo: () => void;
-  pauseVideo: () => void;
-  mute: () => void;
-  unMute: () => void;
-  isMuted: () => boolean;
-  getPlayerState: () => number;
-  seekTo: (seconds: number, allowSeekAhead: boolean) => void;
   setSize: (width: number, height: number) => void;
   destroy: () => void;
 };
@@ -26,11 +20,9 @@ type YTNamespace = {
       playerVars?: Record<string, number | string>;
       events?: {
         onReady?: (e: { target: YTPlayer }) => void;
-        onStateChange?: (e: { data: number }) => void;
       };
     }
   ) => YTPlayer;
-  PlayerState: { PLAYING: number; PAUSED: number; ENDED: number };
 };
 
 declare global {
@@ -113,19 +105,15 @@ export default function HeroVideoPlayer() {
   const aspectRef = useRef<HTMLDivElement>(null);
   const mountRef = useRef<HTMLDivElement>(null);
   const playerRef = useRef<YTPlayer | null>(null);
-  const primedRef = useRef(false);
 
+  const [activated, setActivated] = useState(false);
   const [ready, setReady] = useState(false);
-  const [started, setStarted] = useState(false);
-  const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(true);
 
   useEffect(() => {
+    if (!activated) return;
+
     let cancelled = false;
     let rafId = 0;
-    let primeTimer = 0;
-    primedRef.current = false;
-    setReady(false);
 
     const syncSize = () => {
       if (!cancelled) {
@@ -156,16 +144,13 @@ export default function HeroVideoPlayer() {
         width,
         height,
         playerVars: {
-          autoplay: 0,
-          controls: 0,
+          autoplay: 1,
+          controls: 1,
           modestbranding: 1,
           rel: 0,
           iv_load_policy: 3,
-          fs: 0,
-          disablekb: 1,
           playsinline: 1,
           cc_load_policy: 0,
-          start: 0,
           enablejsapi: 1,
           origin: typeof window !== "undefined" ? window.location.origin : "",
         },
@@ -173,32 +158,9 @@ export default function HeroVideoPlayer() {
           onReady: (e) => {
             if (cancelled) return;
             const player = e.target;
-            player.mute();
-            player.seekTo(0, true);
             fitPlayerToContainer(aspectRef.current, mountRef.current, player);
-            // Reproduz silenciosamente por um instante para carregar o frame inicial real do vídeo
             player.playVideo();
-          },
-          onStateChange: (e) => {
-            if (cancelled) return;
-            const player = playerRef.current;
-            if (!player) return;
-
-            if (!primedRef.current && e.data === window.YT!.PlayerState.PLAYING) {
-              primeTimer = window.setTimeout(() => {
-                if (cancelled || primedRef.current) return;
-                player.pauseVideo();
-                player.seekTo(0, true);
-                primedRef.current = true;
-                fitPlayerToContainer(aspectRef.current, mountRef.current, player);
-                setReady(true);
-              }, 400);
-              return;
-            }
-
-            const isPlaying = e.data === window.YT!.PlayerState.PLAYING;
-            setPlaying(isPlaying);
-            if (isPlaying) setStarted(true);
+            setReady(true);
           },
         },
       });
@@ -214,8 +176,6 @@ export default function HeroVideoPlayer() {
 
     return () => {
       cancelled = true;
-      primedRef.current = false;
-      window.clearTimeout(primeTimer);
       cancelAnimationFrame(rafId);
       resizeObserver.disconnect();
       window.removeEventListener("resize", scheduleSync);
@@ -224,42 +184,7 @@ export default function HeroVideoPlayer() {
       playerRef.current = null;
       if (mountRef.current) mountRef.current.innerHTML = "";
     };
-  }, [mountId]);
-
-  const handlePlayPause = () => {
-    const player = playerRef.current;
-    if (!player) return;
-    if (playing) {
-      player.pauseVideo();
-      setPlaying(false);
-    } else {
-      player.playVideo();
-      setStarted(true);
-      setPlaying(true);
-    }
-  };
-
-  const handleStart = () => {
-    const player = playerRef.current;
-    if (!player) return;
-    player.unMute();
-    setMuted(false);
-    player.playVideo();
-    setStarted(true);
-    setPlaying(true);
-  };
-
-  const handleMuteToggle = () => {
-    const player = playerRef.current;
-    if (!player) return;
-    if (player.isMuted()) {
-      player.unMute();
-      setMuted(false);
-    } else {
-      player.mute();
-      setMuted(true);
-    }
-  };
+  }, [activated, mountId]);
 
   return (
     <div className="relative w-full">
@@ -278,55 +203,55 @@ export default function HeroVideoPlayer() {
 
       <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black">
         <div ref={aspectRef} className="relative aspect-video w-full overflow-hidden bg-black">
-          <div
-            ref={mountRef}
-            id={`hero-yt-${mountId}`}
-            className="absolute inset-0 [&_iframe]:pointer-events-none"
-            title="Mega Pack 4.0 — video"
-          />
+          <picture>
+            <source srcSet={POSTER_WEBP} type="image/webp" />
+            <img
+              src={POSTER_JPG}
+              alt="Vista previa del video Mega Pack 4.0"
+              decoding="async"
+              fetchPriority="high"
+              width={854}
+              height={480}
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+                ready ? "pointer-events-none opacity-0" : "opacity-100"
+              }`}
+            />
+          </picture>
 
-          {!ready && (
-            <div className="absolute inset-0 z-10 flex items-center justify-center bg-black" aria-hidden>
-              <div className="h-8 w-8 animate-pulse rounded-full border-2 border-white/30 border-t-white/80" />
-            </div>
+          {activated && (
+            <div
+              ref={mountRef}
+              id={`hero-yt-${mountId}`}
+              className="absolute inset-0"
+              title="Mega Pack 4.0 — video"
+            />
           )}
 
-          {!started && (
+          {!activated && (
             <button
               type="button"
-              onClick={handleStart}
-              disabled={!ready}
-              className="absolute inset-0 z-20 flex items-center justify-center bg-black/10 transition hover:bg-black/5 disabled:cursor-wait disabled:bg-black/40"
+              onClick={() => setActivated(true)}
+              className="absolute inset-0 z-10 flex items-center justify-center transition hover:bg-black/5"
               aria-label="Reproducir video"
             >
-              <motion.span
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-white/95 text-black shadow-[0_0_24px_rgba(255,255,255,0.35)] sm:h-14 sm:w-14"
-              >
-                <Play className="ml-0.5 h-6 w-6 fill-black sm:h-7 sm:w-7" />
-              </motion.span>
+              <span className="flex h-14 w-14 items-center justify-center rounded-full bg-red-600 shadow-[0_4px_24px_rgba(0,0,0,0.45)] sm:h-16 sm:w-16">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="ml-1 h-7 w-7 fill-white sm:h-8 sm:w-8"
+                  aria-hidden
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </span>
             </button>
           )}
 
-          {started && (
-            <div className="absolute bottom-2 left-1/2 z-30 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-2 py-1.5 backdrop-blur-md">
-              <button
-                type="button"
-                onClick={handlePlayPause}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-white transition hover:bg-white/10"
-                aria-label={playing ? "Pausar" : "Reproducir"}
-              >
-                {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 fill-white" />}
-              </button>
-              <button
-                type="button"
-                onClick={handleMuteToggle}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-white transition hover:bg-white/10"
-                aria-label={muted ? "Activar sonido" : "Silenciar"}
-              >
-                {muted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-              </button>
+          {activated && !ready && (
+            <div
+              className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-black/40"
+              aria-hidden
+            >
+              <div className="h-8 w-8 animate-pulse rounded-full border-2 border-white/30 border-t-white/80" />
             </div>
           )}
         </div>

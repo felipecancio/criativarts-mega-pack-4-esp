@@ -3,18 +3,24 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MockupGrid from "./components/MockupGrid";
-import DesignGallery from "./components/DesignGallery";
-import ClientTestimonials from "./components/ClientTestimonials";
-import Benefits from "./components/Benefits";
-import ExclusiveBonuses from "./components/ExclusiveBonuses";
-import PurchaseGuarantee from "./components/PurchaseGuarantee";
-import PricingCTA from "./components/PricingCTA";
-import FAQ from "./components/FAQ";
-import Footer from "./components/Footer";
-import WhatsAppFloat from "./components/WhatsAppFloat";
+
+const DesignGallery = lazy(() => import("./components/DesignGallery"));
+const ClientTestimonials = lazy(() => import("./components/ClientTestimonials"));
+const Benefits = lazy(() => import("./components/Benefits"));
+const ExclusiveBonuses = lazy(() => import("./components/ExclusiveBonuses"));
+const PurchaseGuarantee = lazy(() => import("./components/PurchaseGuarantee"));
+const PricingCTA = lazy(() => import("./components/PricingCTA"));
+const FAQ = lazy(() => import("./components/FAQ"));
+const Footer = lazy(() => import("./components/Footer"));
+const WhatsAppFloat = lazy(() => import("./components/WhatsAppFloat"));
+
+function SectionFallback() {
+  return <div className="min-h-px" aria-hidden />;
+}
 
 export default function App() {
   return (
@@ -23,16 +29,20 @@ export default function App() {
       <main>
         <Hero />
         <MockupGrid />
-        <DesignGallery />
-        <ClientTestimonials />
-        <Benefits />
-        <ExclusiveBonuses />
-        <PurchaseGuarantee />
-        <PricingCTA />
-        <FAQ />
+        <Suspense fallback={<SectionFallback />}>
+          <DesignGallery />
+          <ClientTestimonials />
+          <Benefits />
+          <ExclusiveBonuses />
+          <PurchaseGuarantee />
+          <PricingCTA />
+          <FAQ />
+        </Suspense>
       </main>
-      <Footer />
-      <WhatsAppFloat />
+      <Suspense fallback={null}>
+        <Footer />
+        <WhatsAppFloat />
+      </Suspense>
     </div>
   );
 }

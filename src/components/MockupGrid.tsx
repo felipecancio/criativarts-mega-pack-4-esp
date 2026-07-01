@@ -124,6 +124,8 @@ export default function MockupGrid() {
                       alt={`Muestra de diseño Mega Pack 4.0 ${i + 1}`}
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       draggable={false}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      decoding="async"
                     />
                   </div>
                 ))}

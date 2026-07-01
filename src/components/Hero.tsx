@@ -17,12 +17,7 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 gap-y-6 max-lg:justify-items-center max-lg:gap-y-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-rows-[auto_auto_auto] lg:justify-items-stretch lg:gap-x-10 lg:gap-y-3 lg:items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="order-1 min-w-0 w-full max-w-xl max-lg:mx-auto max-lg:text-center lg:order-none lg:col-start-1 lg:row-start-1 lg:max-w-none lg:pr-4 lg:text-left"
-          >
+          <div className="order-1 min-w-0 w-full max-w-xl max-lg:mx-auto max-lg:text-center lg:order-none lg:col-start-1 lg:row-start-1 lg:max-w-none lg:pr-4 lg:text-left">
             <div className="mb-4 inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-3.5 backdrop-blur-sm max-lg:mx-auto sm:gap-3 sm:py-2 sm:pl-2 sm:pr-4">
               <span
                 className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-500/25 bg-gradient-to-br from-amber-500/15 via-purple-500/10 to-transparent text-base shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] sm:h-9 sm:w-9 sm:text-lg"
@@ -48,19 +43,14 @@ export default function Hero() {
             <p className="mb-0 max-w-lg text-base leading-relaxed text-gray-400 max-lg:mx-auto md:text-lg lg:mx-0">
               Un arsenal de diseños exclusivos para crear productos que destacan y venden más. Son +40 mil diseños JPG/PNG en alta calidad, 65 temas en tendencia e impresión hasta 2,5 metros. Acceso vitalicio por Drive, sin cuotas y garantía total o tu dinero de vuelta.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative order-2 min-w-0 w-full max-w-xl max-lg:my-4 lg:order-none lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:max-w-none lg:self-center"
-          >
+          <div className="relative order-2 min-w-0 w-full max-w-xl max-lg:my-4 lg:order-none lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:max-w-none lg:self-center">
             <div className="relative z-10 w-full">
               <HeroVideoPlayer />
             </div>
             <div className="pointer-events-none absolute inset-0 -z-10 bg-purple-500/10 rounded-full blur-[100px] max-lg:hidden" aria-hidden />
-          </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, x: -50 }}
