@@ -25,8 +25,8 @@ export default function PricingCTA() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="bg-white/[0.03] border border-white/10 rounded-[40px] overflow-hidden p-8 md:p-16 text-center shadow-2xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/[0.08] border border-orange-500/20 text-[10px] font-black text-orange-200 mb-6 tracking-[0.12em] uppercase">
-            <span className="text-sm leading-none" aria-hidden>
+          <div className="mb-5 inline-flex max-w-full items-center gap-1.5 rounded-full border border-orange-500/20 bg-orange-500/[0.08] px-3 py-1 text-[9px] font-black uppercase tracking-[0.1em] text-orange-200 sm:text-[10px]">
+            <span className="text-xs leading-none" aria-hidden>
               ⏳
             </span>
             ¡Atención, esta oferta ya va a terminar!
@@ -37,9 +37,10 @@ export default function PricingCTA() {
           </h2>
 
           <p className="mb-8 max-w-2xl mx-auto text-sm font-medium leading-relaxed text-gray-400 md:text-lg">
-            Adquiere ahora en el lanzamiento con un{" "}
-            <span className="text-emerald-400 font-black">50% de descuento</span>. Pago único, entrega instantánea y
-            garantía de riesgo cero.
+            Aprovecha nuestra{" "}
+            <span className="font-black text-emerald-400">super promoción</span> por tiempo limitado. Adquiere ahora el
+            Mega Pack 4 y sigue recibiendo todas las futuras{" "}
+            <span className="font-black text-orange-400">actualizaciones GRATIS.</span>
           </p>
 
           <div className="mb-10 -mx-8 flex w-[calc(100%+4rem)] flex-col items-center justify-center sm:mx-0 sm:w-full">
@@ -62,8 +63,8 @@ export default function PricingCTA() {
             seguirá creciendo para siempre.
           </p>
 
-          <p className="mx-auto mb-5 flex w-full max-w-md flex-wrap items-center justify-center gap-2 text-center text-xs font-black uppercase tracking-[0.14em] text-gray-400 sm:mb-6 sm:text-sm">
-            <span className="text-base leading-none" aria-hidden>
+          <p className="mx-auto mb-5 flex w-full max-w-md flex-wrap items-center justify-center gap-1.5 text-center text-[10px] font-black uppercase tracking-[0.12em] text-gray-400 sm:mb-6 sm:gap-2 sm:text-sm sm:tracking-[0.14em]">
+            <span className="text-xs leading-none sm:text-base" aria-hidden>
               ⏳
             </span>
             Oferta por tiempo <span className="text-orange-400">LIMITADO</span>

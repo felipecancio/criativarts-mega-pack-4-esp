@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import GreenCTAButton from "./GreenCTAButton";
-import { ChevronLeft, ChevronRight, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 
 const SLIDE_COUNT = 14;
@@ -70,10 +70,6 @@ export default function MockupGrid() {
     <section className="py-24 bg-[#0a0a0a]" id="mockups">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-emerald-300">
-            <Sparkles className="h-3.5 w-3.5 text-emerald-400" />
-            50% OFF en el lanzamiento hoy
-          </div>
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 uppercase italic tracking-tighter">
             Solo en el <span className="text-purple-400">Mega Pack 4.0</span> encuentras todos los diseños que buscas
           </h2>

@@ -16,9 +16,9 @@ export default function Hero() {
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 gap-y-6 max-lg:justify-items-center max-lg:gap-y-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-rows-[auto_auto_auto] lg:justify-items-stretch lg:gap-x-10 lg:gap-y-3 lg:items-center">
+        <div className="grid grid-cols-1 gap-y-6 max-lg:justify-items-center max-lg:gap-y-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:grid-rows-[auto_auto_auto] lg:justify-items-stretch lg:gap-x-10 lg:gap-y-3 lg:items-center">
           <div className="order-1 min-w-0 w-full max-w-xl max-lg:mx-auto max-lg:text-center lg:order-none lg:col-start-1 lg:row-start-1 lg:max-w-none lg:pr-4 lg:text-left">
-            <div className="mb-4 inline-flex max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-3.5 backdrop-blur-sm max-lg:mx-auto sm:gap-3 sm:py-2 sm:pl-2 sm:pr-4">
+            <div className="mb-4 hidden max-w-full items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-1.5 pr-3.5 backdrop-blur-sm sm:gap-3 sm:py-2 sm:pl-2 sm:pr-4 lg:inline-flex">
               <span
                 className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-amber-500/25 bg-gradient-to-br from-amber-500/15 via-purple-500/10 to-transparent text-base shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] sm:h-9 sm:w-9 sm:text-lg"
                 aria-hidden
@@ -31,7 +31,7 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="mb-5 max-w-xl text-[2.35rem] font-black leading-[1.08] tracking-tight text-white max-lg:mx-auto sm:text-[2.75rem] sm:leading-[1.06] md:mb-6 md:text-5xl lg:mx-0 lg:text-[3.5rem] lg:leading-[1.05]">
+            <h1 className="mb-5 max-w-xl text-[2rem] font-black leading-[1.08] tracking-tight text-white max-lg:mx-auto sm:text-[2.35rem] sm:leading-[1.06] md:mb-6 md:text-5xl lg:mx-0 lg:text-[3.5rem] lg:leading-[1.05]">
               +40.000
               <br />
               DISEÑOS EN{" "}
@@ -40,12 +40,16 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="mb-0 max-w-lg text-base leading-relaxed text-gray-400 max-lg:mx-auto md:text-lg lg:mx-0">
-              Un arsenal de diseños exclusivos para crear productos que destacan y venden más. Son +40 mil diseños JPG/PNG en alta calidad, 65 temas en tendencia e impresión hasta 2,5 metros. Acceso vitalicio por Drive, sin cuotas y garantía total o tu dinero de vuelta.
+            <p className="mb-0 max-w-lg text-sm leading-relaxed text-gray-400 max-lg:mx-auto sm:text-base md:text-lg lg:mx-0">
+              Un arsenal de diseños exclusivos para crear productos que destacan y venden más. Son +40 mil diseños JPG/PNG en alta calidad, 65 temas en tendencia e impresión hasta 2,5 metros.
+              <span className="hidden lg:inline"> Acceso vitalicio por Drive, sin cuotas y garantía total o tu dinero de vuelta.</span>
             </p>
           </div>
 
-          <div className="relative order-2 min-w-0 w-full max-w-xl max-lg:my-4 lg:order-none lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:max-w-none lg:self-center">
+          <div className="relative order-2 min-w-0 w-full max-w-xl max-lg:mb-3 max-lg:mt-0 lg:order-none lg:col-start-2 lg:row-span-3 lg:row-start-1 lg:max-w-none lg:self-center">
+            <p className="mb-1.5 text-xs font-medium leading-snug text-gray-500 max-lg:text-center sm:text-[13px] lg:text-left">
+              Mira las vistas previas en el video:
+            </p>
             <div className="relative z-10 w-full">
               <HeroVideoPlayer />
             </div>

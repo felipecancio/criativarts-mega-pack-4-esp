@@ -1,13 +1,9 @@
 import { motion } from "motion/react";
 import GreenCTAButton from "./GreenCTAButton";
 import {
-  Zap,
-  Clock,
   ShieldCheck,
   Download,
   Package,
-  Sparkles,
-  Layout,
   Printer,
 } from "lucide-react";
 
@@ -16,10 +12,6 @@ const benefits = [
   { icon: <Printer className="w-6 h-6" />, title: "Alta resolución", desc: "~5 MB por archivo, 4100×6100 px — impresión hasta 2,5 metros." },
   { icon: <ShieldCheck className="w-6 h-6" />, title: "Libre de derechos", desc: "100% original Criativarts. Uso comercial tranquilo en tus creaciones." },
   { icon: <Download className="w-6 h-6" />, title: "Acceso inmediato", desc: "Enlace al Drive por correo y WhatsApp. Un solo pago, sin mensualidades." },
-  { icon: <Layout className="w-6 h-6" />, title: "Organizado", desc: "Carpetas por tema. Descarga parcial o completa, como prefieras." },
-  { icon: <Zap className="w-6 h-6" />, title: "Listo para imprimir", desc: "Cuadros, camisetas, paneles, adhesivos, azulejos, papel tapiz y más." },
-  { icon: <Clock className="w-6 h-6" />, title: "Soporte vitalicio", desc: "Acompañamiento postventa para que aproveches todo el material." },
-  { icon: <Sparkles className="w-6 h-6" />, title: "Riesgo cero", desc: "¿No estás 100% satisfecho? Reembolso íntegro, sin preguntas." },
 ];
 
 export default function Benefits() {
@@ -40,7 +32,7 @@ export default function Benefits() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 justify-items-center gap-8 md:grid-cols-2 md:justify-items-stretch lg:grid-cols-4">
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
@@ -48,9 +40,9 @@ export default function Benefits() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="p-6 rounded-3xl bg-white/[0.02] border border-white/5 hover:border-white/10 hover:bg-white/[0.04] transition-all group"
+              className="w-full max-w-sm p-6 text-center rounded-3xl bg-white/[0.02] border border-white/5 transition-all group hover:border-white/10 hover:bg-white/[0.04] md:max-w-none md:text-left"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-500/20 text-purple-300">
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-500/20 text-purple-300 md:mx-0">
                 {benefit.icon}
               </div>
               <h3 className="text-xl font-bold text-white mb-2">{benefit.title}</h3>
