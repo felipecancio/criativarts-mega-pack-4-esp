@@ -6,7 +6,7 @@ import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react
 const SLIDE_COUNT = 14;
 const GAP_PX = 16;
 const AUTOPLAY_MS = 5000;
-const slides = Array.from({ length: SLIDE_COUNT }, (_, i) => `/mockup-carousel/${i + 1}.png`);
+const slides = Array.from({ length: SLIDE_COUNT }, (_, i) => `/mockup-carousel/${i + 1}.webp`);
 
 export default function MockupGrid() {
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -71,9 +71,9 @@ export default function MockupGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 uppercase italic tracking-tighter">
-            Solo en el <span className="text-purple-400">Mega Pack 4.0</span> encuentras todos los diseños que buscas
+            En el <span className="text-purple-400">Mega Pack 4.0</span> encuentras todos los diseños que buscas
           </h2>
-          <div className="text-gray-500 max-w-2xl mx-auto text-lg">
+          <div className="mx-auto max-w-2xl text-sm text-gray-500 sm:text-base">
             <p>
               Solo en Mega Pack obtienes calidad y cantidad al mismo tiempo. Aunque se trata de una colección enorme, cada diseño fue seleccionado cuidadosamente para que aproveches al máximo su potencial.
             </p>
@@ -118,6 +118,8 @@ export default function MockupGrid() {
                     <img
                       src={src}
                       alt={`Muestra de diseño Mega Pack 4.0 ${i + 1}`}
+                      width={600}
+                      height={800}
                       className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                       draggable={false}
                       loading={i === 0 ? "eager" : "lazy"}

@@ -4,23 +4,33 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import GreenCTAButton from "./GreenCTAButton";
 import { MEGAPACK_THEMES } from "../data/megapackThemes";
 
-const GALLERY_COUNT = 27;
+const VERTICAL_NUMS = Array.from({ length: 27 }, (_, i) => i + 1);
+const HORIZONTAL_NUMS = [28, 29, 30, 31, 32, 33];
 const DESKTOP_VISIBLE = 25;
 const INITIAL_THEMES_VISIBLE = Math.ceil(MEGAPACK_THEMES.length / 3);
 
 const themePillClass =
   "rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-[10px] font-bold uppercase tracking-wide text-gray-300 transition hover:border-purple-500/40 hover:text-white sm:text-xs";
 
-const tiles = Array.from({ length: GALLERY_COUNT }, (_, i) => ({
-  src: `/design-gallery/${i + 1}.webp`,
-  alt: `Diseño exclusivo Mega Pack 4.0 — ${i + 1}`,
+const verticalTiles = VERTICAL_NUMS.map((n) => ({
+  src: `/design-gallery/${n}.webp`,
+  alt: `Diseño exclusivo Mega Pack 4.0 — ${n}`,
+  w: 540,
+  h: 720,
+}));
+
+const horizontalTiles = HORIZONTAL_NUMS.map((n) => ({
+  src: `/design-gallery/${n}.webp`,
+  alt: `Diseño exclusivo Mega Pack 4.0 — ${n}`,
+  w: 960,
+  h: 480,
 }));
 
 function GalleryTile({
   tile,
   index,
 }: {
-  tile: (typeof tiles)[number];
+  tile: (typeof verticalTiles)[number];
   index: number;
 }) {
   return (
@@ -34,16 +44,48 @@ function GalleryTile({
       <img
         src={tile.src}
         alt={tile.alt}
+        width={tile.w}
+        height={tile.h}
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         draggable={false}
         loading="lazy"
+        decoding="async"
+      />
+    </motion.div>
+  );
+}
+
+function HorizontalTile({
+  tile,
+  index,
+}: {
+  tile: (typeof horizontalTiles)[number];
+  index: number;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.05 }}
+      viewport={{ once: true }}
+      className="group relative aspect-[2/1] overflow-hidden rounded-xl border border-white/10 bg-black/40 sm:rounded-2xl"
+    >
+      <img
+        src={tile.src}
+        alt={tile.alt}
+        width={tile.w}
+        height={tile.h}
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        draggable={false}
+        loading="lazy"
+        decoding="async"
       />
     </motion.div>
   );
 }
 
 export default function DesignGallery() {
-  const desktopTiles = tiles.slice(0, DESKTOP_VISIBLE);
+  const desktopTiles = verticalTiles.slice(0, DESKTOP_VISIBLE);
   const [showAllThemes, setShowAllThemes] = useState(false);
   const visibleThemes = showAllThemes
     ? MEGAPACK_THEMES
@@ -51,36 +93,54 @@ export default function DesignGallery() {
   const hiddenThemesCount = MEGAPACK_THEMES.length - INITIAL_THEMES_VISIBLE;
 
   return (
-    <section className="py-24 bg-black overflow-hidden" id="gallery">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+    <section className="overflow-hidden bg-black py-24" id="gallery">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 flex flex-col items-end justify-between gap-6 md:flex-row">
           <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-6xl font-black text-white italic uppercase tracking-tighter leading-none mb-4" id="temas">
+            <h2
+              className="mb-4 text-4xl font-black italic uppercase leading-none tracking-tighter text-white md:text-6xl"
+              id="temas"
+            >
               UN ARSENAL DE <span className="text-purple-500">DISEÑOS EXCLUSIVOS</span>
             </h2>
-            <p className="text-gray-500 text-lg font-medium">
-              Una muestra visual del material. Más de 40 mil diseños organizados por carpetas — descarga poco a poco o todo de una vez.
+            <p className="text-sm font-medium text-gray-500 md:text-lg">
+              Una muestra visual del material. Más de 40 mil diseños organizados por carpetas — descarga poco a poco o
+              todo de una vez.
             </p>
           </div>
-          <div className="bg-white/5 border border-white/10 px-6 py-3 rounded-2xl flex items-center gap-4 shrink-0">
-            <span className="text-3xl font-black text-white tabular-nums">65</span>
-            <span className="text-white text-xs font-black uppercase tracking-widest leading-tight">
+          <div className="flex shrink-0 items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-3">
+            <span className="text-3xl font-black tabular-nums text-white">65</span>
+            <span className="text-xs font-black uppercase leading-tight tracking-widest text-white">
               temas modernos <br />
               y creativos
             </span>
           </div>
         </div>
 
-        <div className="mb-14 grid grid-cols-3 gap-2 sm:gap-3 md:hidden">
-          {tiles.map((tile, index) => (
-            <GalleryTile key={tile.src} tile={tile} index={index} />
-          ))}
+        <div className="mb-14 md:hidden">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3">
+            {verticalTiles.map((tile, index) => (
+              <GalleryTile key={tile.src} tile={tile} index={index} />
+            ))}
+          </div>
+          <div className="mt-3 grid grid-cols-2 gap-2 sm:mt-4 sm:gap-3">
+            {horizontalTiles.map((tile, index) => (
+              <HorizontalTile key={tile.src} tile={tile} index={index} />
+            ))}
+          </div>
         </div>
 
-        <div className="mb-14 hidden md:grid md:grid-cols-5 md:gap-4">
-          {desktopTiles.map((tile, index) => (
-            <GalleryTile key={tile.src} tile={tile} index={index} />
-          ))}
+        <div className="mb-14 hidden md:block">
+          <div className="grid grid-cols-5 gap-4">
+            {desktopTiles.map((tile, index) => (
+              <GalleryTile key={tile.src} tile={tile} index={index} />
+            ))}
+          </div>
+          <div className="mt-4 grid grid-cols-3 gap-4">
+            {horizontalTiles.map((tile, index) => (
+              <HorizontalTile key={tile.src} tile={tile} index={index} />
+            ))}
+          </div>
         </div>
 
         <motion.div
@@ -89,11 +149,10 @@ export default function DesignGallery() {
           viewport={{ once: true }}
           className="rounded-[32px] border border-white/10 bg-white/[0.02] p-6 sm:p-8"
         >
-          <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-gray-500 mb-6">
+          <p className="mb-6 text-center text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">
             Catálogo completo incluido en tu acceso
           </p>
 
-          {/* Mobile: primer tercio + expandir */}
           <div className="relative md:hidden">
             <div className="flex flex-wrap justify-center gap-2 sm:gap-2.5">
               <AnimatePresence initial={false}>
@@ -159,7 +218,6 @@ export default function DesignGallery() {
             )}
           </div>
 
-          {/* Desktop: todos los temas visibles */}
           <div className="hidden md:flex md:flex-wrap md:justify-center md:gap-2.5">
             {MEGAPACK_THEMES.map((theme) => (
               <span key={theme} className={themePillClass}>
@@ -168,7 +226,7 @@ export default function DesignGallery() {
             ))}
           </div>
 
-          <p className="mt-8 max-w-xl mx-auto text-center text-sm font-medium leading-relaxed text-gray-400 sm:text-base">
+          <p className="mx-auto mt-8 max-w-xl text-center text-sm font-medium leading-relaxed text-gray-400 sm:text-base">
             Material 100% organizado y actualizado. Obtén acceso ahora y comienza a usarlo de inmediato.
           </p>
 
