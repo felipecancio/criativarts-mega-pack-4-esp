@@ -37,10 +37,11 @@ export default function PricingCTA() {
           </h2>
 
           <p className="mb-8 max-w-2xl mx-auto text-sm font-medium leading-relaxed text-gray-400 md:text-lg">
-            Aprovecha nuestra{" "}
-            <span className="font-black text-emerald-400">super promoción</span> por tiempo limitado. Adquiere ahora el
-            Mega Pack 4 y sigue recibiendo todas las futuras{" "}
-            <span className="font-black text-orange-400">actualizaciones GRATIS.</span>
+            ¡Aprovecha nuestra{" "}
+            <span className="font-black text-orange-400">súper promoción</span> de aniversario y obtén acceso de por
+            vida al Mega Pack con todas las{" "}
+            <span className="font-black text-orange-400">futuras actualizaciones incluidas</span>, todo por la{" "}
+            <span className="font-black text-emerald-400">mitad de precio!</span>
           </p>
 
           <div className="mb-10 -mx-8 flex w-[calc(100%+4rem)] flex-col items-center justify-center sm:mx-0 sm:w-full">
@@ -63,11 +64,11 @@ export default function PricingCTA() {
             seguirá creciendo para siempre.
           </p>
 
-          <p className="mx-auto mb-5 flex w-full max-w-md flex-wrap items-center justify-center gap-1.5 text-center text-[10px] font-black uppercase tracking-[0.12em] text-gray-400 sm:mb-6 sm:gap-2 sm:text-sm sm:tracking-[0.14em]">
-            <span className="text-xs leading-none sm:text-base" aria-hidden>
+          <p className="mx-auto mb-5 flex w-full max-w-md flex-wrap items-center justify-center gap-1 text-center text-[9px] font-semibold uppercase tracking-[0.1em] text-gray-500 sm:mb-6 sm:gap-1.5 sm:text-[11px]">
+            <span className="text-[10px] leading-none sm:text-xs" aria-hidden>
               ⏳
             </span>
-            Oferta por tiempo <span className="text-orange-400">LIMITADO</span>
+            Oferta por tiempo LIMITADO
           </p>
 
           <motion.a

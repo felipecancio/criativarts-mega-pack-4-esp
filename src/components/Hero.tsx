@@ -11,7 +11,7 @@ const checklist = [
 
 export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-black" id="hero">
+    <section className="relative overflow-hidden bg-black pt-8 pb-20 md:pt-10" id="hero">
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-[128px]" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px]" />
 
@@ -94,6 +94,9 @@ export default function Hero() {
                 VER TEMAS <Download className="h-5 w-5 shrink-0 text-black" />
               </a>
               </div>
+              <p className="mt-2.5 text-center text-[11px] font-medium leading-snug text-gray-500 md:hidden">
+                50% OFF por tiempo limitado
+              </p>
             </div>
 
             <div className="grid max-lg:mx-auto max-lg:mt-8 max-lg:max-w-sm grid-cols-2 gap-x-4 gap-y-3 lg:mx-0 lg:mt-0 lg:max-w-none lg:grid-cols-4 lg:gap-x-6 lg:gap-y-0">

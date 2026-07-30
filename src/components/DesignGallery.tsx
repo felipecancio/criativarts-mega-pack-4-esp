@@ -173,7 +173,7 @@ export default function DesignGallery() {
           </p>
 
           <div className="mt-5 text-center">
-            <GreenCTAButton>QUIERO ACCEDER</GreenCTAButton>
+            <GreenCTAButton id="nav-sticky-trigger">QUIERO ACCEDER</GreenCTAButton>
           </div>
         </motion.div>
       </div>

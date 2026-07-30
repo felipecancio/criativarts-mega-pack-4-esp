@@ -36,6 +36,7 @@ type GreenCTAButtonProps = {
   icon?: LucideIcon | null;
   size?: "default" | "compact";
   className?: string;
+  id?: string;
 };
 
 export default function GreenCTAButton({
@@ -44,6 +45,7 @@ export default function GreenCTAButton({
   icon: Icon = Zap,
   size = "default",
   className = "",
+  id,
 }: GreenCTAButtonProps) {
   const sizeClasses =
     size === "compact"
@@ -55,6 +57,7 @@ export default function GreenCTAButton({
 
   return (
     <motion.a
+      id={id}
       href={href}
       animate={pulseAnimation}
       transition={pulseTransition}
