@@ -10,6 +10,41 @@
   }
 }
 
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-enter {
+  animation: hero-enter 0.8s 0.05s both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes green-cta-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(16, 185, 129, 0.35),
+      0 10px 32px rgba(5, 150, 105, 0.4);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow:
+      0 0 26px 8px rgba(52, 211, 153, 0.45),
+      0 15px 44px rgba(5, 150, 105, 0.52);
+    filter: brightness(1.07);
+  }
+}
+
+.animate-green-cta-pulse {
+  animation: green-cta-pulse 2.5s ease-in-out infinite;
+}
+
 @keyframes nav-sticky-in {
   from {
     opacity: 0;

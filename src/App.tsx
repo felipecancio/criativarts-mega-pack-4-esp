@@ -6,7 +6,8 @@
 import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import MockupGrid from "./components/MockupGrid";
+
+const MockupGrid = lazy(() => import("./components/MockupGrid"));
 
 const DesignGallery = lazy(() => import("./components/DesignGallery"));
 const ClientTestimonials = lazy(() => import("./components/ClientTestimonials"));
@@ -18,8 +19,8 @@ const FAQ = lazy(() => import("./components/FAQ"));
 const Footer = lazy(() => import("./components/Footer"));
 const WhatsAppFloat = lazy(() => import("./components/WhatsAppFloat"));
 
-function SectionFallback() {
-  return <div className="min-h-px" aria-hidden />;
+function SectionFallback({ minHeight = "1px" }: { minHeight?: string }) {
+  return <div className="min-h-px" style={{ minHeight }} aria-hidden />;
 }
 
 export default function App() {
@@ -28,7 +29,9 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <MockupGrid />
+        <Suspense fallback={<SectionFallback minHeight="520px" />}>
+          <MockupGrid />
+        </Suspense>
         <Suspense fallback={<SectionFallback />}>
           <DesignGallery />
           <ClientTestimonials />

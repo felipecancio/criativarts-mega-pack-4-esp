@@ -8,21 +8,21 @@ const testimonials = [
       "Compré el Mega Pack 4.0 para mi taller de sublimación en Medellín y fue un antes y un después. Los diseños vienen en alta resolución, las carpetas están ordenadas por tema y atiendo pedidos que antes no podía por falta de material. El acceso al Drive es vitalicio y eso me da tranquilidad.",
     name: "Andrés Morales",
     place: "Bogotá, Colombia",
-    avatar: "/testimonials/1.png",
+    avatar: "/testimonials/1.webp",
   },
   {
     quote:
       "Tengo una tienda de cuadros y paneles en Rosario. Con 65 temas distintos ya no repito los mismos diseños que vende todo el barrio. Mis clientes notan la variedad y el margen mejoró porque puedo ofrecer piezas exclusivas sin pagar diseñador cada semana.",
     name: "María Pérez",
     place: "Rosario, Argentina",
-    avatar: "/testimonials/2.png",
+    avatar: "/testimonials/2.webp",
   },
   {
     quote:
       "Lo compré con duda porque ya probé packs baratos de internet. Aquí todo es libre de derechos, llegó al instante por correo y WhatsApp, y los bonos de Funko y fútbol sumaron valor real. Llevo meses usando el material y sigo encontrando diseños nuevos en las carpetas.",
     name: "Ricardo Méndez",
     place: "Buenos Aires, Argentina",
-    avatar: "/testimonials/3.png",
+    avatar: "/testimonials/3.webp",
   },
 ];
 
@@ -102,6 +102,8 @@ export default function ClientTestimonials() {
                   width={52}
                   height={52}
                   className="h-[52px] w-[52px] shrink-0 rounded-2xl object-cover ring-2 ring-white/10"
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                 />
                 <div className="min-w-0 text-left">

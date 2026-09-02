@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import GreenCTAButton from "./GreenCTAButton";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -103,11 +102,9 @@ export default function MockupGrid() {
             className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]"
           >
             {slideW > 0 ? (
-              <motion.div
-                className="flex"
-                style={{ gap: GAP_PX }}
-                animate={{ x: -offsetPx }}
-                transition={{ duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
+              <div
+                className="flex transition-transform duration-[550ms] ease-[cubic-bezier(0.32,0.72,0,1)]"
+                style={{ gap: GAP_PX, transform: `translateX(-${offsetPx}px)` }}
               >
                 {slides.map((src, i) => (
                   <div
@@ -127,7 +124,7 @@ export default function MockupGrid() {
                     />
                   </div>
                 ))}
-              </motion.div>
+              </div>
             ) : (
               <div className="aspect-[3/4] w-full rounded-xl bg-white/[0.04]" aria-hidden />
             )}

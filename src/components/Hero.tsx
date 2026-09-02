@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { ArrowRight, CheckCircle2, Download } from "lucide-react";
 import HeroVideoPlayer from "./HeroVideoPlayer";
 
@@ -56,12 +55,7 @@ export default function Hero() {
             <div className="pointer-events-none absolute inset-0 -z-10 bg-purple-500/10 rounded-full blur-[100px] max-lg:hidden" aria-hidden />
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.05 }}
-            className="order-3 min-w-0 w-full max-w-xl max-lg:mx-auto max-lg:text-center lg:order-none lg:col-start-1 lg:row-start-2 lg:row-span-2 lg:max-w-none lg:pr-4 lg:text-left"
-          >
+          <div className="hero-enter order-3 min-w-0 w-full max-w-xl max-lg:mx-auto max-lg:text-center lg:order-none lg:col-start-1 lg:row-start-2 lg:row-span-2 lg:max-w-none lg:pr-4 lg:text-left">
             <p className="mb-4 max-w-lg text-sm leading-relaxed text-gray-400 max-lg:mx-auto max-lg:text-center sm:text-base lg:mx-0 lg:mb-6 lg:text-left">
               Ideal para cuadros, camisetas, tazas, pósters y todo tipo de productos personalizados.
             </p>
@@ -71,22 +65,12 @@ export default function Hero() {
                 obtén todas las futuras actualizaciones GRATIS.
               </p>
               <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-nowrap lg:items-stretch lg:justify-start">
-              <motion.a
+              <a
                 href="#comprar"
-                animate={{
-                  boxShadow: [
-                    "0 0 0 0 rgba(16, 185, 129, 0.35), 0 10px 32px rgba(5, 150, 105, 0.4)",
-                    "0 0 30px 8px rgba(52, 211, 153, 0.48), 0 14px 44px rgba(5, 150, 105, 0.52)",
-                  ],
-                  filter: ["brightness(1)", "brightness(1.07)"],
-                }}
-                transition={{ duration: 2.5, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                className="relative shrink-0 whitespace-nowrap inline-flex bg-gradient-to-br from-emerald-400 via-green-500 to-emerald-700 px-6 py-4 text-base font-black text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] transition-colors hover:from-emerald-300 hover:via-green-400 hover:to-emerald-600 items-center justify-center gap-2 rounded-2xl border border-emerald-300/40 lg:px-8 lg:text-lg"
+                className="animate-green-cta-pulse relative shrink-0 whitespace-nowrap inline-flex bg-gradient-to-br from-emerald-400 via-green-500 to-emerald-700 px-6 py-4 text-base font-black text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.25)] transition-[transform,colors] hover:scale-105 active:scale-[0.97] hover:from-emerald-300 hover:via-green-400 hover:to-emerald-600 items-center justify-center gap-2 rounded-2xl border border-emerald-300/40 lg:px-8 lg:text-lg"
               >
                 QUIERO EL MEGA PACK 4.0 <ArrowRight className="h-5 w-5 shrink-0 text-white" />
-              </motion.a>
+              </a>
               <a
                 href="#gallery"
                 className="hidden shrink-0 whitespace-nowrap rounded-2xl border border-transparent bg-white px-6 py-4 text-base font-bold text-black shadow-[0_0_20px_rgba(255,255,255,0.15)] transition-all hover:bg-gray-200 md:flex items-center justify-center gap-2 lg:px-8 lg:text-lg"
@@ -107,7 +91,7 @@ export default function Hero() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

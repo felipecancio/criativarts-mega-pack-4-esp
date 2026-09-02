@@ -45,15 +45,21 @@ function BonusImageFrame({
   src,
   alt,
   className = "",
+  width = 280,
+  height = 420,
 }: {
   src: string;
   alt: string;
   className?: string;
+  width?: number;
+  height?: number;
 }) {
   return (
     <img
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       className={`mx-auto block h-full max-h-[220px] w-auto max-w-full object-contain sm:max-h-[250px] lg:max-h-[280px] ${className}`}
       draggable={false}
       loading="lazy"
